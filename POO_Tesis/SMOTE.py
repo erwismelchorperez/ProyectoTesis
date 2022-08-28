@@ -41,7 +41,7 @@ class SMOTE:
                 x_trainnew = [x_train[i:i+24] for i in range(0,len(x_train),24)]
                 x_trainnew = np.array(x_trainnew)
                 
-                y_trainnew = np.append(y_trainnew,2)
+                y_trainnew = np.append(y_trainnew,1)
                 #print("Revisando:   ",type(x_train),"   ",x_train.shape," ",y_train.shape,"   ", y_trainnew.shape)
                 #print(y_trainnew)
                 x_train = x_trainnew

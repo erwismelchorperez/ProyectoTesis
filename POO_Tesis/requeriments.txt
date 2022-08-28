@@ -1,2 +1,8 @@
 pip install pandas
 pip install -U scikit-learn
+pip install -U matplotlib
+pip install mlxtend  
+----- tensorflow
+pip install --upgrade pip
+pip install tensorflow
+pip install tf-nightly

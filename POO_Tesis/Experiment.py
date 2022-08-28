@@ -8,6 +8,10 @@ Tercer Semestre
 from Parameters import Parameters
 from Dataset import Dataset
 from SMOTE import SMOTE
+from NeuralNetworks import NeuralNetworks
+from DecisionTree import DecisionTree
+from SupportVectorMachine import SupportVectorMachine
+
 class Experiment:
     def __init__(self, method, params_file):
         self.method = method
@@ -20,5 +24,25 @@ class Experiment:
         self.dataset.set_xtrain(self.smote.get_xtrain())
         self.dataset.set_ytrain(self.smote.get_ytrain())
         self.dataset.ImprimirShape()
-
+        self.Implementacion(self.getmethod())
         print("Execute experiment!!!")
+    
+    def getmethod(self):
+        return self.method
+
+    def getDataset(self):
+        return self.dataset
+    
+    def Implementacion(self, method):
+        if method == "RNN":
+            rnn = NeuralNetworks()
+            capaOculta1 = [40, 30, 20, 12]
+            capaOculta2 = [25, 20, 15, 6]
+            capaOculta3 = [12,  8,  4, 3]
+            rnn.SearchMesh(capaOculta1,capaOculta2,capaOculta3,self.getDataset(),2500)
+        elif method == "DT":
+            dt = DecisionTree(self.getDataset())
+            dt.DecisionTreeModel(self.getDataset())
+        elif method == "SVM":
+            svm = SupportVectorMachine()
+            svm.SupportVectorMachineModel(self.getDataset())
