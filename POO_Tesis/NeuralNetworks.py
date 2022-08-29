@@ -14,6 +14,7 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.utils import to_categorical
 import numpy as np
 from sklearn.metrics import confusion_matrix
+from Plotting import Plotting
 class NeuralNetworks:
     def __init__(self):
         self.hidden_layer_one = 20
@@ -61,7 +62,7 @@ class NeuralNetworks:
         self.model.add(Dense(self.get_hiddenlayerone(), kernel_initializer=self.get_initializer(), input_shape=(feature_vector_length,), activation='tanh'))
         self.model.add(Dense(self.get_hiddenlayertwo(), activation='tanh'))
         self.model.add(Dense(self.get_hiddenlayerthree(), activation='tanh'))
-        self.model.add(Dense(numclass, activation='softmax'))
+        self.model.add(Dense(numclass, activation='sigmoid'))
 
     def CompileModel(self):
         self.model.compile(loss='binary_crossentropy', optimizer='adam',metrics=self.get_metrics())
@@ -110,6 +111,24 @@ class NeuralNetworks:
         print(mejor_accuracy)
         print(mejor_red_encontrada)
         print(mejor_matrizconfusion)
+        return mejor_red_encontrada
+
+    def EvaluateBestNetwork(self,hiddenlayer_one,hiddenlayer_two,hiddenlayer_three,dataset,epochs):
+        self.set_hiddenlayerone(hiddenlayer_one)
+        self.set_hiddenlayertwo(hiddenlayer_two)
+        self.set_hiddenlayerthree(hiddenlayer_three)
+
+        self.CreateModel(dataset.getNumClass(),dataset.getfeature_vector_length())#creación del modelo
+        self.CompileModel()#compilación del modelo
+        #print(dataset.getNumClass(),"      ",dataset.getfeature_vector_length(),"     ",dataset.get_xtrain().shape,"    ",dataset.get_ytrain().shape,"     ",epochs,"    ",dataset.get_xvalidation().shape,"     ",dataset.get_yvalidation().shape)
+        self.TrainModel(dataset.get_xtrain(),dataset.get_ytrainCategorical(),epochs,dataset.get_xvalidation(),dataset.get_yvalidationCategorical())#entrenamiento del modelo
+
+        test_result = self.EvaluateModel(dataset.get_xtest(),dataset.get_ytestCategorical())
+        matrizconfusion = confusion_matrix(dataset.get_ytestCategorical().argmax(axis=1), self.PredictModel(dataset.get_xtest()).argmax(axis=1))
+        confusionmatrix = Plotting()
+        confusionmatrix.ConfusionMatrix(matrizconfusion)
+
+
 
 
 
