@@ -13,6 +13,7 @@ from NeuralNetworks import NeuralNetworks
 from DecisionTree import DecisionTree
 from SupportVectorMachine import SupportVectorMachine
 from ImageConversion import ImageConversion
+from ConvolutionalNeuralNetworks import ConvolutionalNeuralNetworks
 
 class Experiment:
     def __init__(self, method, params_file):
@@ -50,5 +51,10 @@ class Experiment:
             svm = SupportVectorMachine()
             svm.SupportVectorMachineModel(self.getDataset())
         elif method == "CNN":
-            convertionimage = ImageConversion(self.getDataset())
-            convertionimage.Convertion()
+            #convertionimage = ImageConversion(self.getDataset())
+            #convertionimage.Convertion()
+            cnn = ConvolutionalNeuralNetworks(self.getDataset())
+            cnn.ConvolutionalNeuralNetworks_run()
+
+
+

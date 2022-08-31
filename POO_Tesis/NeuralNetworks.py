@@ -24,6 +24,7 @@ class NeuralNetworks:
         self.early_stopping = self.get_earlystopping()
         self.model = Sequential()
         self.initializer = self.get_initializer()
+        np.random.seed(0)
     
     def set_hiddenlayerone(self,hidden_layer_one):
         self.hidden_layer_one = hidden_layer_one
