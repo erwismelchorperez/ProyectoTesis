@@ -6,6 +6,7 @@ Tesis
 Tercer Semestre
 """
 from dataclasses import dataclass
+from pickletools import optimize
 from tkinter.tix import InputOnly
 import numpy as np
 import tensorflow as tf
@@ -17,25 +18,26 @@ class ConvolutionalNeuralNetworks:
         self.model = models.Sequential()
 
     def ReshapeDataset(self):
-        x_aux = []
-        for x in self.dataset.get_xtrain():
-            x = np.reshape(x,(4,6))
-            x_aux.append(x)
-        
-        self.dataset.set_xtrain(np.array(x_aux))
+        self.dataset.set_xtrain(self.dataset.get_xtrain().reshape(len(self.dataset.get_xtrain()), 6,4))
     
     def CreateModel(self):
         input_shape = self.dataset.get_xtrain().shape
-        print("input_shape:     ", input_shape)
         self.model = models.Sequential()
-        self.model.add(layers.Conv2D( 64, (3,3), activation='relu', input_shape=(5,7,1) ))
-        self.model.add(layers.Conv2D(128, (3,3), activation='relu'))
-        self.model.add(layers.Conv2D(256, (3,3), activation='relu'))
+        self.model.add(layers.Conv2D( 64, (2,2), activation='relu', input_shape=(5, 6,4) ))
+        self.model.add(layers.Conv2D(128, (2,2), activation='relu'))
+        self.model.add(layers.Conv2D(256, (2,2), activation='relu'))
         self.model.add(Dense(128, activation='relu'))
         self.model.add(Dense(2, activation='softmax'))
         self.model.summary()
+    
+    def CompileModel(self):
+        self.model.compile(optimizer='adam',
+                            loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+                            metrics=['accuracy'])
+        history = self.model.fit(self.dataset.get_xtrain(),self.dataset.get_ytrain(), epochs=10, validation_data=(self.dataset.get_xvalidation(),self.dataset.get_yvalidation()))
 
     def ConvolutionalNeuralNetworks_run(self):
         self.ReshapeDataset()
         self.CreateModel()
+        self.CompileModel()
     
