@@ -65,6 +65,13 @@ class NeuralNetworks:
         self.model.add(Dense(self.get_hiddenlayerthree(), activation='tanh'))
         self.model.add(Dense(numclass, activation='sigmoid'))
 
+    def CreateModelOne(self,numclass,feature_vector_length):
+        self.model = Sequential()
+        self.model.add(Dense(self.get_hiddenlayerone(), kernel_initializer=self.get_initializer(), input_shape=(feature_vector_length,), activation='sidmoid'))
+        self.model.add(Dense(self.get_hiddenlayertwo(), activation='sidmoid'))
+        self.model.add(Dense(self.get_hiddenlayerthree(), activation='sidmoid'))
+        self.model.add(Dense(numclass, activation='sigmoid'))
+
     def CompileModel(self):
         self.model.compile(loss='binary_crossentropy', optimizer='adam',metrics=self.get_metrics())
         
@@ -121,7 +128,6 @@ class NeuralNetworks:
 
         self.CreateModel(dataset.getNumClass(),dataset.getfeature_vector_length())#creación del modelo
         self.CompileModel()#compilación del modelo
-        #print(dataset.getNumClass(),"      ",dataset.getfeature_vector_length(),"     ",dataset.get_xtrain().shape,"    ",dataset.get_ytrain().shape,"     ",epochs,"    ",dataset.get_xvalidation().shape,"     ",dataset.get_yvalidation().shape)
         self.TrainModel(dataset.get_xtrain(),dataset.get_ytrainCategorical(),epochs,dataset.get_xvalidation(),dataset.get_yvalidationCategorical())#entrenamiento del modelo
 
         test_result = self.EvaluateModel(dataset.get_xtest(),dataset.get_ytestCategorical())
@@ -129,6 +135,39 @@ class NeuralNetworks:
         confusionmatrix = Plotting()
         confusionmatrix.ConfusionMatrix(matrizconfusion)
 
+    def EvaluateBestNetwork_One(self,hiddenlayer_one,hiddenlayer_two,hiddenlayer_three,dataset,epochs):
+        self.set_hiddenlayerone(hiddenlayer_one)
+        self.set_hiddenlayertwo(hiddenlayer_two)
+        self.set_hiddenlayerthree(hiddenlayer_three)
+
+        self.CreateModelOne(dataset.getNumClass()-1,dataset.getfeature_vector_length())#creación del modelo
+        self.CompileModel()#compilación del modelo
+        self.TrainModel(dataset.get_xtrain(),dataset.get_ytrain(),epochs,dataset.get_xvalidation(),dataset.get_yvalidation())#entrenamiento del modelo
+
+        test_result = self.EvaluateModel(dataset.get_xtest(),dataset.get_ytest())
+        respuestas = self.PredictModel(dataset.get_xtest()).argmax(axis=1)
+        res = respuestas.reshape((respuestas.shape[0]))
+        res = (res>0.5)*1
+        matrizconfusion = confusion_matrix(dataset.get_ytest(), res)
+        confusionmatrix = Plotting()
+        confusionmatrix.ConfusionMatrix(matrizconfusion)
+
+    def SearchConfigNetworkInput(self,dataset,epochs):
+        r = np.power((dataset.get_xtrain().shape[1]/2),0.25)
+        self.set_hiddenlayerone(int(2*np.power(r,3)))
+        r = np.power(self.get_hiddenlayerone()/2,0.25)
+        self.set_hiddenlayertwo(int(2*np.power(r,2)) + 2)
+        r = np.power((self.get_hiddenlayertwo()/2),0.25)
+        self.set_hiddenlayerthree(int(2*r)+1)
+
+        self.CreateModel(dataset.getNumClass(),dataset.getfeature_vector_length())#creación del modelo
+        self.CompileModel()#compilación del modelo
+        self.TrainModel(dataset.get_xtrain(),dataset.get_ytrainCategorical(),epochs,dataset.get_xvalidation(),dataset.get_yvalidationCategorical())#entrenamiento del modelo
+
+        test_result = self.EvaluateModel(dataset.get_xtest(),dataset.get_ytestCategorical())
+        matrizconfusion = confusion_matrix(dataset.get_ytestCategorical().argmax(axis=1), self.PredictModel(dataset.get_xtest()).argmax(axis=1))
+        confusionmatrix = Plotting()
+        confusionmatrix.ConfusionMatrix(matrizconfusion)
 
 
 

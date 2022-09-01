@@ -3,6 +3,8 @@
 [30,  6,  3] ->
 [12,  6,  8] -> [[149 61] [27 63]]
 
+[12, 6, 3] con una neurona de salida
+
 corrimiento
 python3 Main.py RNN input/param1.cfg
 python3 Main.py DT input/param1.cfg

@@ -23,7 +23,7 @@ class ConvolutionalNeuralNetworks:
     def CreateModel(self):
         input_shape = self.dataset.get_xtrain().shape
         self.model = models.Sequential()
-        self.model.add(layers.Conv2D( 64, (2,2), activation='relu', input_shape=(5, 6,4) ))
+        self.model.add(layers.Conv2D( 64, (2,2), activation='relu', input_shape=(5, 7, 1) ))
         self.model.add(layers.Conv2D(128, (2,2), activation='relu'))
         self.model.add(layers.Conv2D(256, (2,2), activation='relu'))
         self.model.add(Dense(128, activation='relu'))
