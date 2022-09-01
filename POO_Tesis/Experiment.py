@@ -43,7 +43,17 @@ class Experiment:
             capaOculta2 = [25, 20, 15, 6]
             capaOculta3 = [12,  8,  4, 3]
             mejor_red_encontrada = rnn.SearchMesh(capaOculta1,capaOculta2,capaOculta3,self.getDataset(),2500)#retorna la mejor red encontrada
-            rnn.EvaluateBestNetwork(mejor_red_encontrada[0],mejor_red_encontrada[1],mejor_red_encontrada[2],self.getDataset(),2500)
+            rnn.EvaluateBestNetwork(mejor_red_encontrada[0],mejor_red_encontrada[1],mejor_red_encontrada[2],self.getDataset(),2500)#2 neuronas capa salida
+        elif method == "RNN_":
+            rnn = NeuralNetworks()
+            rnn.SearchConfigNetworkInput(self.getDataset(),2500)
+        elif method == "RNN1":
+            rnn = NeuralNetworks()
+            capaOculta1 = [40, 30, 20, 12]
+            capaOculta2 = [25, 20, 15, 6]
+            capaOculta3 = [12,  8,  4, 3]
+            mejor_red_encontrada = rnn.SearchMesh(capaOculta1,capaOculta2,capaOculta3,self.getDataset(),2500)#retorna la mejor red encontrada
+            rnn.EvaluateBestNetwork_One(mejor_red_encontrada[0],mejor_red_encontrada[1],mejor_red_encontrada[2],self.getDataset(),2500)#2 neuronas capa salida
         elif method == "DT":
             dt = DecisionTree(self.getDataset())
             dt.DecisionTreeModel(self.getDataset())
