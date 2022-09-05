@@ -13,7 +13,7 @@ from NeuralNetworks import NeuralNetworks
 from DecisionTree import DecisionTree
 from SupportVectorMachine import SupportVectorMachine
 from ImageConversion import ImageConversion
-from ConvolutionalNeuralNetworks import ConvolutionalNeuralNetworks
+from ConvolutionalNeuralNetworks import ConvolutionalNeuralNetworks, ConvolutionalNeuralNetworksMnist
 
 class Experiment:
     def __init__(self, method, params_file):
@@ -65,6 +65,9 @@ class Experiment:
             #convertionimage.Convertion()
             cnn = ConvolutionalNeuralNetworks(self.getDataset())
             cnn.ConvolutionalNeuralNetworks_run()
+        elif method == "CNNMnist":
+            cnn = ConvolutionalNeuralNetworksMnist()
+            cnn.ConvolutionalNeuralNetworksMnist_run()
 
 
 

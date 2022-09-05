@@ -65,7 +65,6 @@ class Dataset:
         return self.y_validation
 
     def get_ytrainCategorical(self):
-        #print("categorical:                    ",self.getNumClass(),"   ",self.get_ytrain(),"   ")
         return to_categorical(self.get_ytrain(),num_classes=self.getNumClass(),dtype ="int32")
     def get_ytestCategorical(self):
         return to_categorical(self.get_ytest(),self.getNumClass())
