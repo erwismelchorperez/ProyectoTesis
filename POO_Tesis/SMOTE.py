@@ -30,20 +30,14 @@ class SMOTE:
             #generarmos un número aleatorio para verificar que sea de la clase minoritaria
             aleatorio = random.randint(0, len(y_train)-1)
             min_class = y_train.tolist()[aleatorio]
-            #print(aleatorio,"  ", min_class)
             if min_class == 1:
                 new = self.VecinoCercano(aleatorio,x_train,y_train)
-                #print(y_train.tolist()[new[1]],"     ",y_train.tolist()[aleatorio])
                 xnew = x_train[aleatorio] + (x_train[new[1]] - x_train[aleatorio])*random.random()
-                #print("Nuevo Elemento: ",[xnew],"    ",x_train.shape)
                 x_train = np.append(x_train, [xnew])
-                #flag = False
-                x_trainnew = [x_train[i:i+24] for i in range(0,len(x_train),24)]
+                x_trainnew = [x_train[i:i+xnew.shape[0]] for i in range(0,len(x_train),xnew.shape[0])]
                 x_trainnew = np.array(x_trainnew)
                 
                 y_trainnew = np.append(y_trainnew,1)
-                #print("Revisando:   ",type(x_train),"   ",x_train.shape," ",y_train.shape,"   ", y_trainnew.shape)
-                #print(y_trainnew)
                 x_train = x_trainnew
                 y_train = y_trainnew
                 
@@ -52,12 +46,10 @@ class SMOTE:
             nuevos  = format(sum(y_train==2))
             
             suma = int(malos) + int(nuevos)
-            #print(buenos,"   ",malos,"   ",nuevos,"     ",x_train.shape,"    ",y_train.shape,"   ",suma)
             
             if int(buenos) == suma:
                 flag = False
         
-        #print(x_train.shape,"      ", y_trainnew.shape)
         return x_train,y_train
     
     def VecinoCercano(self,aleatorio,x_train,y_train):#vamos a buscar al vecino más cercano
@@ -71,7 +63,6 @@ class SMOTE:
         arr_menordistancia = []
         for x in x_train:
             salida = y_train.tolist()[cont]
-            #print("Position:   ",salida, " contador:    ",cont)
             if salida == 1 and cont != aleatorio:
                 #hallar menor dimension:
                 d = distance.euclidean(xi, x)#calcular la distancia euclideana para encontrar el menor y este será el vecino más cercano
@@ -79,8 +70,6 @@ class SMOTE:
                     menordistancia = d
                     position_menordistancia = cont
                     arr_menordistancia.append([menordistancia,cont])
-                
-            #xik = x_train[cont]
             
             cont = cont + 1
         return [menordistancia,position_menordistancia]

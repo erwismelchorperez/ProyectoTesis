@@ -10,3 +10,4 @@ python3 Main.py RNN input/param1.cfg
 python3 Main.py DT input/param1.cfg
 python3 Main.py SVM input/param1.cfg
 python3 Main.py CNN input/param1.cfg
+python3 Main.py CNNMnist input/param1.cfg --- prueba del mnist
