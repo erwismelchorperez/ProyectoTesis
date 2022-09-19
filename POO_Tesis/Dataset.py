@@ -14,11 +14,12 @@ from tensorflow.keras.utils import to_categorical
 class Dataset:
     def __init__(self,parameters):
         self.dataset = pd.read_csv("./dataset/"+parameters.get_dataset())#lectura del archivo que contiene el csv
-        self.dataset['salida'] = self.dataset['salida']-1
+        self.dataset['salida'] = self.dataset['salida']
         self.numclass = len(pd.unique(self.dataset['salida']))
         self.salidas = self.dataset['salida'] 
         self.entradas = self.Normalizacion_MinMax(self.dataset.drop(["salida"],axis=1))
         (self.x_train,self.x_test,self.x_validation,self.y_train,self.y_test,self.y_validation) = self.Separation_Dataset(parameters)
+        #print(self.x_train.shape,"     ",self.y_train.shape,"\n",self.x_test.shape,"  ",self.y_test.shape,"\n",self.x_validation.shape,"   ",self.y_validation.shape)
 
     def Normalizacion_MinMax(self,entradas):
         sc = MinMaxScaler()

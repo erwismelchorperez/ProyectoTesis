@@ -18,7 +18,8 @@ class SMOTE:
         malos  = format(sum(y_train==1))
         nuevos  = format(sum(y_train==2))
         aleatorio = random.randint(0, len(x_train)-1)
-        #print("dimension:   ", len(x_train), "    ",aleatorio,"  ",y_train.shape)
+        print(buenos,"    ",malos,"    ",nuevos)
+        print("dimension:   ", len(x_train), "    ",aleatorio,"  ",y_train.shape)
         
         xnew = []#nuevo elemento
         xi = []#elementos seleccionado
@@ -30,14 +31,14 @@ class SMOTE:
             #generarmos un número aleatorio para verificar que sea de la clase minoritaria
             aleatorio = random.randint(0, len(y_train)-1)
             min_class = y_train.tolist()[aleatorio]
-            if min_class == 1:
+            if min_class == 0:
                 new = self.VecinoCercano(aleatorio,x_train,y_train)
                 xnew = x_train[aleatorio] + (x_train[new[1]] - x_train[aleatorio])*random.random()
                 x_train = np.append(x_train, [xnew])
                 x_trainnew = [x_train[i:i+xnew.shape[0]] for i in range(0,len(x_train),xnew.shape[0])]
                 x_trainnew = np.array(x_trainnew)
                 
-                y_trainnew = np.append(y_trainnew,1)
+                y_trainnew = np.append(y_trainnew,0)
                 x_train = x_trainnew
                 y_train = y_trainnew
                 
@@ -46,7 +47,7 @@ class SMOTE:
             nuevos  = format(sum(y_train==2))
             
             suma = int(malos) + int(nuevos)
-            
+            #print("Buenos:   ",buenos,"  Malos: ",malos,"  Nuevos:  ",nuevos)
             if int(buenos) == suma:
                 flag = False
         
