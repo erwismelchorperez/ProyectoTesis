@@ -39,7 +39,7 @@ class ConvolutionalNeuralNetworks:
     def CreateModel(self):
         input_shape = self.dataset.get_xtrain().shape
         self.model = models.Sequential()
-        self.model.add(layers.Conv2D( 64, (2,2), activation='relu', input_shape=(5, 4, 1) ))
+        self.model.add(layers.Conv2D( 64, (2,2), activation='relu', input_shape=(1, 5, 4) ))
         self.model.add(layers.Conv2D(128, (2,2), activation='relu'))
         self.model.add(layers.Conv2D(256, (2,2), activation='relu'))
         self.model.add(Dense(128, activation='relu'))
@@ -111,7 +111,7 @@ class ConvolutionalNeuralNetworksMnist:
                  input_shape=self.input_shape))
         self.model.add(Conv2D(128, (3, 3), activation='relu'))
         self.model.add(Conv2D(64, (3, 3), activation='relu'))
-        #model.add(Conv2D(32, (3, 3), activation='relu'))
+        self.model.add(Conv2D(32, (3, 3), activation='relu'))
         self.model.add(Flatten())
         self.model.add(Dense(self.num_classes, activation='softmax'))
 

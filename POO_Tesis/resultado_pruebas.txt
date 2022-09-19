@@ -11,3 +11,47 @@ python3 Main.py DT input/param1.cfg
 python3 Main.py SVM input/param1.cfg
 python3 Main.py CNN input/param1.cfg
 python3 Main.py CNNMnist input/param1.cfg --- prueba del mnist
+
+----- nueva base de datos de EIZ --- calculando las capas ocultas
+[[172 175] [352 884]]
+MCC:  0.1854
+----
+búsqueda de mejor red:
+[30, 6, 8]
+Matriz confusión
+[[ 119  228]
+ [ 201 1035]]
+Nueva evaluación:
+[[168 189] [328 908]]
+MCC:  0.1848
+
+
+Árboles de decisión
+              precision    recall  f1-score   support
+
+           0       0.28      0.58      0.38       347
+           1       0.83      0.58      0.69      1236
+
+    accuracy                           0.58      1583
+   macro avg       0.56      0.58      0.53      1583
+weighted avg       0.71      0.58      0.62      1583
+
+[[200 147]
+ [514 722]]
+F1 Score:                   0.6859857482185274
+Correlación de Mattews:     0.13345059427106154
+
+Máquinas de soporte vectorial
+             precision    recall  f1-score   support
+
+           0       0.36      0.50      0.42       347
+           1       0.84      0.75      0.80      1236
+
+    accuracy                           0.70      1583
+   macro avg       0.60      0.62      0.61      1583
+weighted avg       0.74      0.70      0.71      1583
+
+F1 Score:     0.7127945657545605
+
+[[172 175] [304 932]]
+MCC:   0.2253

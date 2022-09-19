@@ -11,7 +11,7 @@ from Dataset import Dataset
 from SMOTE import SMOTE
 from NeuralNetworks import NeuralNetworks
 from DecisionTree import DecisionTree
-from SupportVectorMachine import SupportVectorMachine
+from SupportVectorMachine import SupportVectorMachine, SupportVectorMachineV2
 from ImageConversion import ImageConversion
 from ConvolutionalNeuralNetworks import ConvolutionalNeuralNetworks, ConvolutionalNeuralNetworksMnist
 
@@ -60,6 +60,8 @@ class Experiment:
         elif method == "SVM":
             svm = SupportVectorMachine()
             svm.SupportVectorMachineModel(self.getDataset())
+            #svm = SupportVectorMachineV2()
+            #svm.VerResultados(self.getDataset())
         elif method == "CNN":
             #convertionimage = ImageConversion(self.getDataset())
             #convertionimage.Convertion()
