@@ -67,9 +67,9 @@ class NeuralNetworks:
 
     def CreateModelOne(self,numclass,feature_vector_length):
         self.model = Sequential()
-        self.model.add(Dense(self.get_hiddenlayerone(), kernel_initializer=self.get_initializer(), input_shape=(feature_vector_length,), activation='sidmoid'))
-        self.model.add(Dense(self.get_hiddenlayertwo(), activation='sidmoid'))
-        self.model.add(Dense(self.get_hiddenlayerthree(), activation='sidmoid'))
+        self.model.add(Dense(self.get_hiddenlayerone(), kernel_initializer=self.get_initializer(), input_shape=(feature_vector_length,), activation='sigmoid'))
+        self.model.add(Dense(self.get_hiddenlayertwo(), activation='sigmoid'))
+        self.model.add(Dense(self.get_hiddenlayerthree(), activation='sigmoid'))
         self.model.add(Dense(numclass, activation='sigmoid'))
 
     def CompileModel(self):
@@ -114,6 +114,40 @@ class NeuralNetworks:
                         mejor_accuracy = test_result[1]
                         mejor_red_encontrada = [capa1,capa2,capa3]
                         mejor_matrizconfusion = confusion_matrix(dataset.get_ytestCategorical().argmax(axis=1), self.PredictModel(dataset.get_xtest()).argmax(axis=1))
+
+        print("Termina búsqueda en malla!!!")        
+        print(mejor_accuracy)
+        print(mejor_red_encontrada)
+        print(mejor_matrizconfusion)
+        return mejor_red_encontrada
+    def SearchMeshOne(self,hiddenlayer_one,hiddenlayer_two,hiddenlayer_three,dataset,epochs):#realizaremos la búsqueda en malla
+        hiddenlayer_one = np.array(hiddenlayer_one)
+        hiddenlayer_two = np.array(hiddenlayer_two)
+        hiddenlayer_three = np.array(hiddenlayer_three)
+
+        """Resultados búsqueda en malla"""
+        mejor_red_encontrada = []
+        mejor_matrizconfusion = []
+        mejor_accuracy = 0
+
+        for capa1 in hiddenlayer_one:
+            for capa2 in hiddenlayer_two:
+                for capa3 in hiddenlayer_three:
+                    self.set_hiddenlayerone(capa1)
+                    self.set_hiddenlayertwo(capa2)
+                    self.set_hiddenlayerthree(capa3)
+
+                    self.CreateModelOne(dataset.getNumClass(),dataset.getfeature_vector_length())#creación del modelo
+                    self.CompileModel()#compilación del modelo
+                    #print(dataset.getNumClass(),"      ",dataset.getfeature_vector_length(),"     ",dataset.get_xtrain().shape,"    ",dataset.get_ytrain().shape,"     ",epochs,"    ",dataset.get_xvalidation().shape,"     ",dataset.get_yvalidation().shape)
+                    self.TrainModel(dataset.get_xtrain(),dataset.get_ytrainCategorical(),epochs,dataset.get_xvalidation(),dataset.get_yvalidationCategorical())#entrenamiento del modelo
+
+                    test_result = self.EvaluateModel(dataset.get_xtest(),dataset.get_ytestCategorical())
+
+                    if mejor_accuracy < test_result[1]:
+                        mejor_accuracy = test_result[1]
+                        mejor_red_encontrada = [capa1,capa2,capa3]
+                        mejor_matrizconfusion = confusion_matrix(dataset.get_ytest(), self.PredictModel(dataset.get_xtest()).argmax(axis=1))
 
         print("Termina búsqueda en malla!!!")        
         print(mejor_accuracy)
