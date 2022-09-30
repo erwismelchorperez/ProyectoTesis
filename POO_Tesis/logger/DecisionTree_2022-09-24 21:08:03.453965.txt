@@ -1,0 +1,25 @@
+F1 Score:   0.8008016032064129
+Correlación de Mattews:    0.21477856086574526
+Correlación de Mattews:    edad                  0.000000
+codigopostal          0.000000
+tipovivienda          0.000000
+dependientes          0.000000
+estadocivil           0.000000
+genero                0.000000
+claveactividad        0.254320
+nivelacademico        0.000000
+telefono              0.000000
+ingreso               0.000000
+egreso                0.000000
+tipoprestamo          0.576788
+tasanormal            0.000000
+tasamoratoria         0.000000
+monto                 0.145666
+avales                0.000000
+creditostrabajados    0.023226
+bien                  0.000000
+montogarantia         0.000000
+finalidad             0.000000
+remesas               0.000000
+plazo                 0.000000
+dtype: float64

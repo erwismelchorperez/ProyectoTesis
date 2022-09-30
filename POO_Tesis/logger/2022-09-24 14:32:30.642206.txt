@@ -1,0 +1,32 @@
+     RNN Busqueda en Malla 2 Neuronas    
+Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5879092812538147, 1259.0, 623.0, 1030.0, 394.0, 0.692377507686615, 0.6689691543579102, 0.761645495891571, 0.7613781690597534, 0.7539886236190796]
+Mejor accuracy        :   0.692377507686615
+Mejor matriz confusión:   [[220 285]
+ [220 928]]
+Mejor función activación:   ['tanh', 'tanh', 'tanh', 'tanh']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5791646242141724, 1165.0, 488.0, 1165.0, 488.0, 0.7047792077064514, 0.7047792077064514, 0.7047792077064514, 0.7716554999351501, 0.7660958170890808]
+Mejor accuracy        :   0.7047792077064514
+Mejor matriz confusión:   [[201 304]
+ [184 964]]
+Mejor función activación:   ['tanh', 'tanh', 'tanh', 'softmax']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.6755939722061157, 1175.0, 478.0, 1175.0, 478.0, 0.7108287811279297, 0.7108287811279297, 0.7108287811279297, 0.7501055002212524, 0.7225835919380188]
+Mejor accuracy        :   0.7108287811279297
+Mejor matriz confusión:   [[ 133  372]
+ [ 106 1042]]
+Mejor función activación:   ['tanh', 'tanh', 'sigmoid', 'softmax']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5601124167442322, 1190.0, 463.0, 1190.0, 463.0, 0.7199032306671143, 0.7199032306671143, 0.7199032306671143, 0.7900735139846802, 0.7848067879676819]
+Mejor accuracy        :   0.7199032306671143
+Mejor matriz confusión:   [[205 300]
+ [163 985]]
+Mejor función activación:   ['tanh', 'tanh', 'relu', 'softmax']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5802156925201416, 1264.0, 489.0, 1164.0, 389.0, 0.7344222664833069, 0.7210496068000793, 0.7646703124046326, 0.7867264747619629, 0.7648601531982422]
+Mejor accuracy        :   0.7344222664833069
+Mejor matriz confusión:   [[ 185  320]
+ [ 125 1023]]
+Mejor función activación:   ['tanh', 'tanh', 'softmax', 'tanh']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5695716738700867, 1202.0, 384.0, 1269.0, 451.0, 0.7474288940429688, 0.7578814625740051, 0.7271627187728882, 0.7829346060752869, 0.7562673687934875]
+Mejor accuracy        :   0.7474288940429688
+Mejor matriz confusión:   [[ 113  392]
+ [  28 1120]]
+Mejor función activación:   ['tanh', 'sigmoid', 'relu', 'relu']

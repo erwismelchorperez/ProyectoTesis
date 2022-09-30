@@ -1,0 +1,5 @@
+
+XGBoostRegression 
+scores:    [0.41831493 0.42741157 0.40566422 0.37747915 0.42329172]
+XGBoostClassifier 
+scores:   [0.7        0.696      0.852      0.892      0.89066667]

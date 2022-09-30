@@ -1,0 +1,85 @@
+Creación del modelo '
+Mejor red encontrada  :   [40, 25, 12]
+Mejor accuracy        :   1173.0
+Mejor matriz confusión:   [[   0  480]
+ [   0 1173]]
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Mejor red encontrada  :   [40, 20, 12]
+Mejor accuracy        :   1235.0
+Mejor matriz confusión:   [[   4  476]
+ [   0 1173]]
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Mejor red encontrada  :   [40, 15, 8]
+Mejor accuracy        :   1374.0
+Mejor matriz confusión:   [[  20  460]
+ [   0 1173]]
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Mejor red encontrada  :   [40, 6, 3]
+Mejor accuracy        :   1622.0
+Mejor matriz confusión:   [[   4  476]
+ [   5 1168]]
+Creación del modelo '
+Creación del modelo '
+Mejor red encontrada  :   [30, 25, 8]
+Mejor accuracy        :   1653.0
+Mejor matriz confusión:   [[   0  480]
+ [   0 1173]]
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '
+Creación del modelo '

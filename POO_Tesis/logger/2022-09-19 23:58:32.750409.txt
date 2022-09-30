@@ -1,0 +1,18 @@
+Mejor red encontrada  :   [40, 25, 12]
+Mejor accuracy        :   973.0
+Mejor matriz confusión:   [[180 300]
+ [300 873]]
+Mejor red encontrada  :   [40, 25, 4]
+Mejor accuracy        :   1202.0
+Mejor matriz confusión:   [[  74  406]
+ [  28 1145]]
+Mejor red encontrada  :   [40, 25, 3]
+Mejor accuracy        :   1412.0
+Mejor matriz confusión:   [[ 133  347]
+ [ 143 1030]]
+Mejor red encontrada  :   [30, 6, 4]
+Mejor accuracy        :   1653.0
+Mejor matriz confusión:   [[  59  421]
+ [  64 1109]]
+     Mejor red:     [[ 480    0]
+ [1173    0]]

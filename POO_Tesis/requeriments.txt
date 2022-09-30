@@ -1,9 +1,11 @@
 pip install pandas
 pip install -U scikit-learn
 pip install -U matplotlib
-pip install mlxtend  
+pip install mlxtend
 pip install opencv-python
 ----- tensorflow
 pip install --upgrade pip
 pip install tensorflow
 pip install tf-nightly
+pip install dtreeplt
+pip install xgboost

@@ -1,0 +1,10 @@
+
+XGBoostRegression 
+scores:    [0.44215474 0.42669979 0.43308452 0.35321422 0.40310985]
+XGBoostClassifier validation_cross
+scores:   [0.67733333 0.68       0.844      0.86266667 0.852     ]
+XGBoostClassifier validation_predict
+MatrixConfusion:   [[1399  476]
+ [ 337 1538]]
+XGBoostClassifier Predict 
+scores:   0.7301875378100423

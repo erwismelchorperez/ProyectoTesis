@@ -1,0 +1,7 @@
+
+XGBoostRegression 
+scores:    [0.43199042 0.40698204 0.42041971 0.36692246 0.44619582]
+XGBoostClassifier 
+scores:   [0.68933333 0.67733333 0.86133333 0.86933333 0.86266667]
+XGBoostClassifier Predict 
+scores:   0.764670296430732
