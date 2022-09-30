@@ -1,0 +1,7 @@
+     RNN Busqueda en Malla 2 Neuronas    
+Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.6735576391220093, 1530.0, 1252.0, 401.0, 123.0, 0.5840895175933838, 0.5499640703201294, 0.9255898594856262, 0.7214109897613525, 0.686068058013916]
+Mejor accuracy        :   0.5840895175933838
+Mejor matriz confusión:   [[  17  488]
+ [   9 1139]]
+Mejor función activación:   ['tanh', 'tanh', 'tanh', 'tanh']

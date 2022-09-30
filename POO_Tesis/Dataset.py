@@ -12,56 +12,58 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler     #min max
 from tensorflow.keras.utils import to_categorical
 class Dataset:
-    def __init__(self,parameters):
+    def __init__(self,parameters, method):
         self.dataset = pd.read_csv("./dataset/"+parameters.get_dataset())#lectura del archivo que contiene el csv
         self.dataset['salida'] = self.dataset['salida']
         self.numclass = len(pd.unique(self.dataset['salida']))
-        self.salidas = self.dataset['salida'] 
-        self.entradas = self.Normalizacion_MinMax(self.dataset.drop(["salida"],axis=1))
+        self.salidas = self.dataset['salida']
+        if method == 'XGBR':
+            self.entradas = self.Normalizacion_MinMax(self.dataset.loc[:, ['tipoprestamo','plazo','edad','claveactividad','creditostrabajados','bien','montogarantia','codigopostal','tipovivienda','dependientes']])
+        else:
+            self.entradas = self.Normalizacion_MinMax(self.dataset.drop(["salida"],axis=1))
         (self.x_train,self.x_test,self.x_validation,self.y_train,self.y_test,self.y_validation) = self.Separation_Dataset(parameters)
-        #print(self.x_train.shape,"     ",self.y_train.shape,"\n",self.x_test.shape,"  ",self.y_test.shape,"\n",self.x_validation.shape,"   ",self.y_validation.shape)
 
     def Normalizacion_MinMax(self,entradas):
         sc = MinMaxScaler()
         sc.fit(entradas)
         self.entradas = sc.transform(entradas)
         return self.entradas
-    
+
     def Separation_Dataset(self,parameters):
         x_train, x_test, y_train, y_test = train_test_split(self.entradas, self.salidas, test_size=parameters.get_test(), stratify=self.salidas)
         x_train, x_validation, y_train,y_validation = train_test_split(x_train, y_train, test_size=parameters.get_validation(), stratify=y_train)
         return (x_train,x_test,x_validation,y_train,y_test,y_validation)
-    
+
     def get_dataset(self):
         return self.dataset
-    
+
     def get_xtrain(self):
         return self.x_train
-    
+
     def set_xtrain(self,x_train):
         self.x_train = x_train
-    
+
     def get_ytrain(self):
         return self.y_train
-    
+
     def set_ytrain(self,y_train):
         self.y_train = y_train
-    
+
     def get_xtest(self):
         return self.x_test
-    
+
     def set_xtest(self,x_test):
         self.x_test = x_test
-    
+
     def get_ytest(self):
         return self.y_test
-    
+
     def set_ytest(self,y_test):
         self.y_test = y_test
 
     def get_xvalidation(self):
         return self.x_validation
-    
+
     def get_yvalidation(self):
         return self.y_validation
 

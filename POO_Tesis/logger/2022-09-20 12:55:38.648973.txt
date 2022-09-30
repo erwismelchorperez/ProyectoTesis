@@ -1,0 +1,21 @@
+     RNN Busqueda en Malla 1 Neurona    
+Mejor red encontrada  :   [40, 25, 12]
+Mejor accuracy        :   1227.0
+Mejor matriz confusión:   [[  40  440]
+ [   5 1168]]
+Mejor red encontrada  :   [40, 25, 14]
+Mejor accuracy        :   1253.0
+Mejor matriz confusión:   [[  75  405]
+ [  37 1136]]
+Mejor red encontrada  :   [40, 20, 10]
+Mejor accuracy        :   1312.0
+Mejor matriz confusión:   [[  17  463]
+ [   0 1173]]
+Mejor red encontrada  :   [40, 20, 20]
+Mejor accuracy        :   1346.0
+Mejor matriz confusión:   [[  45  435]
+ [  80 1093]]
+Mejor red encontrada  :   [40, 15, 2]
+Mejor accuracy        :   1653.0
+Mejor matriz confusión:   [[   0  480]
+ [   0 1173]]

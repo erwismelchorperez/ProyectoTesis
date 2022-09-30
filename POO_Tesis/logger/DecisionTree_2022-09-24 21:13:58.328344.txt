@@ -1,0 +1,26 @@
+F1 Score:   0.8272129880170082
+Correlación de Mattews:    0.276285651987379
+Mas significative smportance:
+    edad                  0.040259
+codigopostal          0.000000
+tipovivienda          0.000000
+dependientes          0.000000
+estadocivil           0.000000
+genero                0.000000
+claveactividad        0.179230
+nivelacademico        0.000000
+telefono              0.000000
+ingreso               0.000000
+egreso                0.000000
+tipoprestamo          0.464775
+tasanormal            0.000000
+tasamoratoria         0.000000
+monto                 0.129133
+avales                0.000000
+creditostrabajados    0.000000
+bien                  0.051127
+montogarantia         0.135475
+finalidad             0.000000
+remesas               0.000000
+plazo                 0.000000
+dtype: float64

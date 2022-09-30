@@ -1,0 +1,17 @@
+     RNN Busqueda en Malla 2 Neuronas    
+Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [5.649315357208252, 245.0, 183.0, 1470.0, 1408.0, 0.5187537670135498, 0.572429895401001, 0.1482153683900833, 0.36664915084838867, 0.4900055229663849]
+Mejor accuracy        :   0.5187537670135498
+Mejor matriz confusión:   [[ 505    0]
+ [1148    0]]
+Mejor función activación:   ['tanh', 'tanh', 'tanh', 'tanh']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5568186640739441, 1234.0, 436.0, 1217.0, 419.0, 0.7413793206214905, 0.7389221787452698, 0.7465214729309082, 0.8108714818954468, 0.801947832107544]
+Mejor accuracy        :   0.7413793206214905
+Mejor matriz confusión:   [[ 192  313]
+ [ 114 1034]]
+Mejor función activación:   ['tanh', 'tanh', 'tanh', 'sigmoid']Mejor red encontrada  :   [40, 25, 12]
+Resultados            :   [0.5704973936080933, 1236.0, 417.0, 1236.0, 417.0, 0.7477313876152039, 0.7477313876152039, 0.7477313876152039, 0.8051512241363525, 0.7937408685684204]
+Mejor accuracy        :   0.7477313876152039
+Mejor matriz confusión:   [[ 164  341]
+ [  76 1072]]
+Mejor función activación:   ['tanh', 'tanh', 'relu', 'softmax']

@@ -8,7 +8,7 @@ Tercer Semestre
 from dataclasses import dataclass
 from pickletools import optimize
 from tabnanny import verbose
-from tkinter.tix import InputOnly
+#from tkinter.tix import InputOnly
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets, layers, models
@@ -33,9 +33,9 @@ class ConvolutionalNeuralNetworks:
         elemento = self.dataset.get_xtrain().shape[1]
         if elemento == 20:
             self.dataset.set_xtrain(self.dataset.get_xtrain().reshape(len(self.dataset.get_xtrain()), 5,4))
-        else: 
+        else:
             self.dataset.set_xtrain(self.dataset.get_xtrain().reshape(len(self.dataset.get_xtrain()), 6,4))
-    
+
     def CreateModel(self):
         input_shape = self.dataset.get_xtrain().shape
         self.model = models.Sequential()
@@ -45,14 +45,14 @@ class ConvolutionalNeuralNetworks:
         self.model.add(Dense(128, activation='relu'))
         self.model.add(Dense(2, activation='softmax'))
         self.model.summary()
-    
+
     def CompileModel(self):
         self.model.compile(optimizer='adam',
                             loss=tf.keras.losses.categorical_crossentropy,
                             metrics=['accuracy'])
         history = self.model.fit(   self.dataset.get_xtrain(),
                                     self.dataset.get_ytrain(),
-                                    epochs=10, 
+                                    epochs=10,
                                     verbose = 1,
                                     validation_data=(self.dataset.get_xvalidation(),self.dataset.get_yvalidation()))
 
@@ -85,7 +85,7 @@ class ConvolutionalNeuralNetworksMnist:
             self.x_train = self.x_train.reshape(self.x_train.shape[0], self.img_rows, self.img_cols, 1)
             self.x_test = self.x_test.reshape(self.x_test.shape[0], self.img_rows, self.img_cols, 1)
             self.input_shape = (self.img_rows, self.img_cols, 1)
-        
+
         self.x_train = self.x_train.astype('float32')
         self.x_test = self.x_test.astype('float32')
         self.x_train /= 255 #normalizing
@@ -97,7 +97,7 @@ class ConvolutionalNeuralNetworksMnist:
         # convert class vectors to binary class matrices
         self.y_train = keras.utils.to_categorical(self.y_train, self.num_classes)
         self.y_test = keras.utils.to_categorical(self.y_test, self.num_classes)
-    
+
     def plt_dynamic(self, x, vy, ty, ax, colors=['b']):
         self.ax.plot(x, vy, 'b', label="Validation Loss")
         self.ax.plot(x, ty, 'r', label="Train Loss")
@@ -116,7 +116,7 @@ class ConvolutionalNeuralNetworksMnist:
         self.model.add(Dense(self.num_classes, activation='softmax'))
 
         self.model.summary()
-    
+
     def ModelCompile(self):
         self.model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Adadelta(),
@@ -130,7 +130,7 @@ class ConvolutionalNeuralNetworksMnist:
         score = self.model.evaluate(self.x_test, self.y_test, verbose=0)
         print('Test loss:', score[0])
         print('Test accuracy:', score[1])
-    
+
     def ModelEvaluate(self):
         score = self.model.evaluate(self.x_test, self.y_test, verbose=0)
         print('Test score:', score[0])
