@@ -6,7 +6,7 @@ Tesis
 Tercer Semestre
 """
 #from tkinter import Image
-from XGBoost import XGBoost_
+from XGBoost import XGBoost_,XGBoost_Hyperparameters
 from Parameters import Parameters
 from Dataset import Dataset
 from SMOTE import SMOTE
@@ -43,7 +43,7 @@ class Experiment:
             rnn.WriteLogger("RNN Busqueda en Malla 2 Neuronas")
             capaOculta1 = [40, 30, 20]
             capaOculta2 = [25, 20, 15]
-            capaOculta3 = [12,  8,  4]            
+            capaOculta3 = [12,  8,  4]
             funcionactivacion1 = ['tanh','sigmoid','relu','softmax','selu']
             funcionactivacion2 = ['tanh','sigmoid','relu','softmax','selu']
             funcionactivacion3 = ['tanh','sigmoid','relu','softmax','selu']
@@ -99,3 +99,6 @@ class Experiment:
             xgbr.ClassifierXGBClassifier()
 
             xgbr.CloseArchivo()
+        elif method == 'XGBR_H':
+            xgbh = XGBoost_Hyperparameters()
+            xgbh.get_dataset()
